@@ -15,7 +15,7 @@ module.exports = function (app) {
 
     app.get('/logout', auth.isAuthenticated, auth.logout);
 
-    app.get('*', auth.isAuthenticated, function (req, res) {
-        res.redirect('/');
-    });
+    //app.get('*', auth.isAuthenticated, function (req, res) {
+    //    res.redirect('/');
+    //});
 };

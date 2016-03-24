@@ -1,6 +1,57 @@
 extends shared/layout
 block main-content
-   div(ng-view)
+   div(clas="page-content")
+      div#tab-general
+         div(class="row mbl")
+            div(class="col-lg-12")
+               div(class="col-md-12")
+            div(class="col-lg-12")
+               div(class="row")
+                  div(class="col-sm-3 col-md-2")
+                  div(class="col-sm-9 col-md-10")
+                     button(type="button" data-toggle="tooltip" title="Refresh" class="btn btn-default mls mrs")
+                        span(class="fa fa-refresh")
+                     div(class="pull-right")
+                        span(class="text-muted")
+                           b 1
+                           | &nbsp; – &nbsp;
+                           b 50
+                           | &nbsp; of &nbsp;
+                           b 277
+                        div(class="btn-group mlm")
+                           button(type="button" class="btn btn-default")
+                              span(class="fa fa-chevron-left")
+                           button(type="button" class="btn btn-default")
+                              span(class="fa fa-chevron-right")
+               div(class="mtl mbl")
+               div(class="row")
+                  div(class="col-sm-3 col-md-2")
+                     a(href="#", role="button", class="btn btn-danger btn-sm btn-block") COMPOSE
+                     div(class="mtm mbm")
+                     div(class="panel")
+                        div(class="panel-body pan")
+                           ul(style="background: #fff" class="nav nav-pills nav-stacked")
+                              li(class="active")
+                                 a(href="#")
+                                    span(class="badge pull-right") 42
+                                    i(class="fa fa-inbox fa-fw mrs")
+                                    |&nbsp;Inbox
+                              li
+                                 a(href="#")
+                                    span(class="badge badge-orange pull-right")
+                                    i(class="fa fa-inbox fa-fw mrs")
+                                    | &nbsp;Outbox
+                              li
+                                 a(href="#")
+                                    span(class="badge badge-orange pull-right") 3
+                                    i(class="fa fa-inbox fa-fw mrs")
+                                    | &nbsp;Drafts
+                              li
+                                 a(href="#")
+                                    span(class="badge badge-orange pull-right") 256
+                                    i(class="fa fa-inbox fa-fw mrs")
+                                    | &nbsp;Spam
+                  div(class ="col-sm-9 col-md-10" ng-view)
 
 
 block page-scripts
@@ -11,3 +62,4 @@ block page-scripts
    script(src="js/common/data.js")
    script(src="js/statistics/statistics-service.js")
    script(src="js/statistics/statistics-controller.js")
+   script(src="js/outbox/outbox-controller.js")
