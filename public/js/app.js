@@ -18,6 +18,16 @@
                 controller: 'OutboxController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
+            .when('/details',{
+                templateUrl: PARTIALS_PREFIX + 'details/details.html',
+                controller: 'DetailsController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
+            .when('/compose',{
+                templateUrl: PARTIALS_PREFIX + 'compose/compose.html',
+                controller: 'ComposeController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
             .otherwise({ redirectTo: '/' });
 
 

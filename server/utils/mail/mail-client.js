@@ -2,12 +2,12 @@ var nodemailer = require('nodemailer');
 var smtpPool = require('nodemailer-smtp-pool');
 
 var transporter = nodemailer.createTransport(smtpPool({
-    host: 'smtp.abv.bg',
+    host: 'smtp.gmail.com',
     secure: true,
     port: 465,
     auth: {
-        user: 'webxserverxplorer@abv.bg',
-        pass: '123456sedem'
+        user: 'mailclientapp@gmail.com',
+        pass: 'mailclient'
     }
 }, {
     from: 'webxserverxplorer@abv.bg',

@@ -26,29 +26,29 @@ block main-content
                div(class="mtl mbl")
                div(class="row")
                   div(class="col-sm-3 col-md-2")
-                     a(href="#", role="button", class="btn btn-danger btn-sm btn-block") COMPOSE
+                     a(href="#/compose", role="button", class="btn btn-danger btn-sm btn-block") COMPOSE
                      div(class="mtm mbm")
-                     div(class="panel")
+                     div(class="panel" ng-controller="HomeController as vm")
                         div(class="panel-body pan")
                            ul(style="background: #fff" class="nav nav-pills nav-stacked")
-                              li(class="active")
-                                 a(href="#")
+                              li(ng-class="{active : vm.activeMenu === 'Inbox'}" ng-click="vm.activeMenu = 'Inbox'")
+                                 a(href="#/home")
                                     span(class="badge pull-right") 42
                                     i(class="fa fa-inbox fa-fw mrs")
                                     |&nbsp;Inbox
-                              li
-                                 a(href="#")
-                                    span(class="badge badge-orange pull-right")
+                              li(ng-class="{active : vm.activeMenu === 'Outbox'}" ng-click="vm.activeMenu = 'Outbox'")
+                                 a(href="#/outbox")
+                                    span(class="badge  pull-right")
                                     i(class="fa fa-inbox fa-fw mrs")
                                     | &nbsp;Outbox
-                              li
-                                 a(href="#")
-                                    span(class="badge badge-orange pull-right") 3
+                              li(ng-class="{active : vm.activeMenu === 'Drafts'}" ng-click="vm.activeMenu = 'Drafts'")
+                                 a(href="#/drafts")
+                                    span(class="badge  pull-right") 3
                                     i(class="fa fa-inbox fa-fw mrs")
                                     | &nbsp;Drafts
-                              li
-                                 a(href="#")
-                                    span(class="badge badge-orange pull-right") 256
+                              li(ng-class="{active : vm.activeMenu === 'Spam'}" ng-click="vm.activeMenu = 'Spam'")
+                                 a(href="#/spam")
+                                    span(class="badge pull-right") 256
                                     i(class="fa fa-inbox fa-fw mrs")
                                     | &nbsp;Spam
                   div(class ="col-sm-9 col-md-10" ng-view)
@@ -63,3 +63,6 @@ block page-scripts
    script(src="js/statistics/statistics-service.js")
    script(src="js/statistics/statistics-controller.js")
    script(src="js/outbox/outbox-controller.js")
+   script(src="js/details/details-controller.js")
+   script(src="js/home/home-controller.js")
+   script(src="js/compose/compose-controller.js")
