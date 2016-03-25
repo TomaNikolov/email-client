@@ -24,6 +24,12 @@ module.exports = {
                 res.redirect('/');
             })
     },
+    getSettings: function(req, res){
+        res.render(`${CONTROLLER_NAME}/settings`);
+    },
+    postSettings: function(req, res){
+        res.render(`${CONTROLLER_NAME}/settings`);
+    },
     getResetPassword: function (req, res) {
         res.render(`${CONTROLLER_NAME}/reset-password`);
     },

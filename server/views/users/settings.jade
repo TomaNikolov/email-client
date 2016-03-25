@@ -1,0 +1,43 @@
+extends ../shared/layout
+block main-content
+    div.col-md-6.col-md-offset-3
+        form(method="post")
+            label(for="email") E-mail
+            input(id="email" type="email" name="email" placeholder="E-mail" class ="form-control")
+
+            br
+
+            label(for="password") E-mail Password
+            input(id="password" type="password" name="password" placeholder="Password" class ="form-control")
+
+            br
+
+            label(for="account") Account Type
+            select(id="account" name="account" class ="form-control")
+                option(value="POP3") POP3
+                option(value="IMAP") IMAP
+
+            br
+
+            label(for="incoming-mail") Incoming Mail Server
+            input(id="incoming-mail" type="text" name="incomingMail" placeholder="Incoming Mail Server" class ="form-control")
+
+            br
+
+            label(for="incoming-mail-port") Incoming Mail Server Port
+            input(id="incoming-mail-port" type="number" name="incomingMailPort" placeholder="Incoming Mail Server Port" class ="form-control")
+
+            br
+
+            label(for="outgoing-mail") Outgoing Mail (SMTP) Server
+            input(id="outgoing-mail" type="text" name="outgoingMail" placeholder="Outgoing Mail Server" class ="form-control")
+
+            br
+
+            label(for="outgoing-mail-port") Outgoing Mail Server Port
+            input(id="outgoing-mail-port" type="number" name="outgoingMailPort" placeholder="Outgoing Mail Server Port" class ="form-control")
+
+            br
+
+            input(type="submit" value="Done" class="btn btn-lg")
+

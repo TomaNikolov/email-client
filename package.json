@@ -9,6 +9,7 @@
     "body-parser": "^1.14.2",
     "connect-busboy": "0.0.2",
     "cookie-parser": "^1.4.0",
+    "emailjs-imap-client": "^2.0.1",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "jade": "^1.11.0",

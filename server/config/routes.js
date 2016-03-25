@@ -15,6 +15,9 @@ module.exports = function (app) {
 
     app.get('/logout', auth.isAuthenticated, auth.logout);
     app.post('/api/sendmail',auth.isAuthenticated, controllers.mail.sendMail);
+
+    app.get('/settings', auth.isAuthenticated, controllers.users.getSettings);
+    app.post('/settings',auth.isAuthenticated, controllers.users.postSettings);
     //app.get('*', auth.isAuthenticated, function (req, res) {
     //    res.redirect('/');
     //});
