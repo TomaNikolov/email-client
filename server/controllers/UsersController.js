@@ -28,7 +28,19 @@ module.exports = {
         res.render(`${CONTROLLER_NAME}/settings`);
     },
     postSettings: function(req, res){
-        res.render(`${CONTROLLER_NAME}/settings`);
+       var user = req.user;
+       var settings = req.body;
+
+        console.log(user);
+        console.log(settings);
+
+        users.setSettings(user._id, settings)
+            .then(function(user){
+                res.redirect('/');
+            })
+        .catch(function(err){
+            res.redirect('/settings')
+        })
     },
     getResetPassword: function (req, res) {
         res.render(`${CONTROLLER_NAME}/reset-password`);

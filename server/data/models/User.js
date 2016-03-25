@@ -8,15 +8,42 @@ module.exports.init = function () {
             require: '{PATH} is required',
             unique: true
         },
-        email: {
-            type: String,
-            require: '{PATH} is required',
-            unique: true
-        },
         salt: String,
         hashPass: String,
         roles: [String],
-        token: String
+        token: String,
+        email: {
+           name:{ type: String,
+            require: '{PATH} is required'
+           },
+            password:{
+                type: String,
+                require: '{PATH} is required'
+            }
+        },
+        accountType:{
+            enum:['POP3', 'IMAP']
+        },
+        incomingMail: {
+            server: {
+                type: String,
+                require: '{PATH} is required'
+            },
+            port: {
+                type: Number,
+                require: '{PATH} is required'
+            }
+        },
+        outgoingMail: {
+            server: {
+                type: String,
+                require: '{PATH} is required'
+            },
+            port: {
+                type: Number,
+                require: '{PATH} is required'
+            }
+        }
     });
 
     userSchema.method({

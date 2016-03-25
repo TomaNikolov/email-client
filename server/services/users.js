@@ -27,6 +27,35 @@ module.exports = {
             });
         });
     },
+    setSettings: function(userId, settings){
+        return new Promise(function (resolve, reject) {
+            User.findOne({_id: userId})
+                .then(function (user) {
+                    if (!user) {
+                        reject('User doesn\'t exist')
+                    }
+
+                    user.accountType = settings.account;
+                    user.email = {
+                        name : settings.email,
+                        password : settings.password
+                    };
+                    user.outgoingMail = {
+                        server: settings.outgoingMail,
+                        port: settings.outgoingMailPort
+                    };
+
+                    user.incomingMail = {
+                        server: settings.incomingMail,
+                        port: settings.incomingMailPort
+                    };
+
+                    user.save();
+                    console.log(user);
+                    resolve(user);
+                });
+        });
+    },
     getAll: function () {
         return User.find({});
     },
