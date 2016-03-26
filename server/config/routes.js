@@ -16,6 +16,10 @@ module.exports = function (app) {
     app.get('/logout', auth.isAuthenticated, auth.logout);
     app.post('/api/sendmail',auth.isAuthenticated, controllers.mail.sendMail);
 
+    app.get('/api/getMailboxes',auth.isAuthenticated, controllers.mail.getMailboxes);
+    app.get('/api/getMailboxMessages',auth.isAuthenticated, controllers.mail.getMailboxMessages);
+    app.get('/api/getMessage',auth.isAuthenticated, controllers.mail.getMessage);
+
     app.get('/settings', auth.isAuthenticated, controllers.users.getSettings);
     app.post('/settings',auth.isAuthenticated, controllers.users.postSettings);
     //app.get('*', auth.isAuthenticated, function (req, res) {

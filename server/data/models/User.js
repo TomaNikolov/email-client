@@ -12,36 +12,40 @@ module.exports.init = function () {
         hashPass: String,
         roles: [String],
         token: String,
-        email: {
-           name:{ type: String,
-            require: '{PATH} is required'
-           },
-            password:{
-                type: String,
-                require: '{PATH} is required'
-            }
-        },
-        accountType:{
-            enum:['POP3', 'IMAP']
-        },
-        incomingMail: {
-            server: {
+        settings: {
+            email: {
+                name: {
+                    type: String,
+                    require: '{PATH} is required'
+                },
+                password: {
+                    type: String,
+                    require: '{PATH} is required'
+                }
+            },
+            accountType: {
                 type: String,
                 require: '{PATH} is required'
             },
-            port: {
-                type: Number,
-                require: '{PATH} is required'
-            }
-        },
-        outgoingMail: {
-            server: {
-                type: String,
-                require: '{PATH} is required'
+            incomingMail: {
+                server: {
+                    type: String,
+                    require: '{PATH} is required'
+                },
+                port: {
+                    type: Number,
+                    require: '{PATH} is required'
+                }
             },
-            port: {
-                type: Number,
-                require: '{PATH} is required'
+            outgoingMail: {
+                server: {
+                    type: String,
+                    require: '{PATH} is required'
+                },
+                port: {
+                    type: Number,
+                    require: '{PATH} is required'
+                }
             }
         }
     });

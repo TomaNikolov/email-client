@@ -7,7 +7,6 @@ module.exports = {
        return new Promise(function (resolve, reject) {
 
             userData.salt = encryption.generateSalt();
-            userData.password = '123456';
             userData.hashPass = encryption.generateHashedPassword(userData.salt, userData.password);
             userData.roles = [];
             userData.roles.push(userData.role);
@@ -17,12 +16,7 @@ module.exports = {
                 if (err) {
                     reject(err)
                 }
-                console.log(err);
-                console.log(user)
-                //mail.register(userData)
-                //    .then(function (message) {
-                //        resolve(message);
-                //    });
+
                 resolve(user);
             });
         });
@@ -35,17 +29,19 @@ module.exports = {
                         reject('User doesn\'t exist')
                     }
 
-                    user.accountType = settings.account;
-                    user.email = {
+                    user.settings = {};
+
+                    user.settings.accountType = settings.account;
+                    user.settings.email = {
                         name : settings.email,
                         password : settings.password
                     };
-                    user.outgoingMail = {
+                    user.settings.outgoingMail = {
                         server: settings.outgoingMail,
                         port: settings.outgoingMailPort
                     };
 
-                    user.incomingMail = {
+                    user.settings.incomingMail = {
                         server: settings.incomingMail,
                         port: settings.incomingMailPort
                     };

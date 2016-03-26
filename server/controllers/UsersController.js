@@ -31,9 +31,6 @@ module.exports = {
        var user = req.user;
        var settings = req.body;
 
-        console.log(user);
-        console.log(settings);
-
         users.setSettings(user._id, settings)
             .then(function(user){
                 res.redirect('/');
