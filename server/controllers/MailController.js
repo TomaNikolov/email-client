@@ -1,4 +1,5 @@
 var mailClient = require('../utils/mail/mail-client');
+var imapMailClient = require('../services/imap-mail-client');
 
 var CONTROLLER_NAME = 'mail';
 
