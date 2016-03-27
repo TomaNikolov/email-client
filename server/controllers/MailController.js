@@ -1,13 +1,12 @@
-var mailClient = require('../utils/mail/mail-client');
+var smtpMailClient = require('../services/smtp-mail-client');
 var imapMailClient = require('../services/imap-mail-client');
-
-var CONTROLLER_NAME = 'mail';
 
 module.exports = {
     sendMail: function (req, res) {
         var mailData = req.body;
+        var user = req.user._doc;
 
-        mailClient.send(mailData.recipient, mailData.text)
+        smtpMailClient.send(mailData, user.settings)
         .then(function(msg){
             console.log(msg);
             res.json({msg: msg});

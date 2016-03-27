@@ -1,6 +1,6 @@
 var User = require('mongoose').model('user');
 var encryption = require('../services/encryption');
-var mail = require('./mail');
+var mail = require('./smtp-mail-client');
 
 module.exports = {
     create: function (userData) {
