@@ -1,17 +1,16 @@
-<div class="tab-content">
+<div class="tab-content" ng-controller="DetailsController as vm">
     <div id="home" class="tab-pane fade in active">
         <div class="list-group mail-box">
             <div>
-                From: <span> Pesho</span>
+                From: <span> {{vm.message.result.headers.from}}</span>
             </div>
             <div>
-                Subject: <span> shte piem li</span>
+                Subject: <span>{{vm.message.result.headers.subject}}</span>
             </div>
             <br/>
             <div>
                 Message:
-                <div >
-                    asdasdasd asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd asdasdasdasdasdasd asdasdasd asdasdasd asdasdasd
+                <div ng-bind-html="vm.msgAsHtml">
                 </div>
             </div>
         </div>
