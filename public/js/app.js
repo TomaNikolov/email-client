@@ -28,6 +28,11 @@
                 controller: 'HomeController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
+            .when('/', {
+                templateUrl: PARTIALS_PREFIX + 'home/home.html',
+                controller: 'HomeController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
             .otherwise({ redirectTo: '/' });
 
 
@@ -38,5 +43,6 @@
     angular.module('myApp.controllers', ['myApp.services']);
     angular.module('myApp', ['ngRoute', 'ngCookies', 'myApp.directives', 'myApp.controllers'])
         .config(['$routeProvider', config])
+        .value('CryptoJS', CryptoJS)
         .constant('baseServiceUrl', 'http://localhost:3005');
 }());

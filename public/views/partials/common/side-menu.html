@@ -3,14 +3,14 @@
         <ul style="background: #fff" class="nav nav-pills nav-stacked">
             <li ng-repeat="mailbox in vm.mailboxes.result" ng-class="{active : vm.activeMenu == '{{mailbox.name}}'}"
                 ng-click="vm.activeMenu = '{{mailbox.name}}'">
-                <a href="#/{{mailbox.path}}">
+                <a href="#/{{ vm.encode(mailbox.path)}}">
                     <i class="fa fa-inbox fa-fw mrs">&nbsp;{{mailbox.name}}</i>
                 </a>
                 <ul ng-if="mailbox.hasChildren" style="background: #fff" class="nav nav-pills nav-stacked">
                     <li ng-repeat="mailboxChild in mailbox.children"
                         ng-class="{active : vm.activeMenu == '{{mailboxChild.name}}'}"
                         ng-click="vm.activeMenu = '{{mailboxChild.name}}'">
-                        <a href="#/{{mailboxChild.path}}">
+                        <a href="#/{{ vm.encode(mailboxChild.path)}}">
                             <i class="fa fa-inbox fa-fw mrs">&nbsp;{{mailboxChild.name}}</i>
                         </a>
                     </li>
