@@ -8,9 +8,9 @@
 
 
         $routeProvider
-            .when('/', {
+            .when('/:mailbox', {
                 templateUrl: PARTIALS_PREFIX + 'home/home.html',
-               // controller: 'HomeController',
+                controller: 'HomeController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
             .when('/outbox',{
@@ -18,7 +18,7 @@
                 controller: 'OutboxController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
-            .when('/details',{
+            .when('/details/:mailbox/:uid',{
                 templateUrl: PARTIALS_PREFIX + 'details/details.html',
                 controller: 'DetailsController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
