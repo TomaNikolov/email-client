@@ -24,13 +24,23 @@ module.exports = {
                         reject(err);
                     }
 
+                    for(var i=0, len = mailboxes.length; i<len; i++){
+                        if(mailboxes[i].hasChildren){
+                            mailboxes[i].listChildren(function(err, children){
+                                if(err){
+                                    reject(err);
+                                }
+
+                                mailboxes[i].children = children;
+                            });
+                        }
+                    }
+
                     client.close();
                     resolve(mailboxes);
                 });
             });
         });
-
-
     },
     getMailboxMessages: function (mailboxPath, settings) {
         var client = getClient(settings);
@@ -82,8 +92,6 @@ module.exports = {
                             })
 
                     });
-
-
                 });
             });
         });
