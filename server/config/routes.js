@@ -18,6 +18,7 @@ module.exports = function (app) {
 
     app.get('/api/getMailboxes',auth.isAuthenticated, controllers.mail.getMailboxes);
     app.get('/api/getMailboxMessages',auth.isAuthenticated, controllers.mail.getMailboxMessages);
+    app.get('/api/getMailboxChildren',auth.isAuthenticated, controllers.mail.getMailboxChildren);
     app.get('/api/getMessage',auth.isAuthenticated, controllers.mail.getMessage);
 
     app.get('/settings', auth.isAuthenticated, controllers.users.getSettings);

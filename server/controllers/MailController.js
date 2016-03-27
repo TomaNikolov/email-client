@@ -34,6 +34,18 @@ module.exports = {
                 res.json({err: err});
             });
     },
+    getMailboxChildren: function (req, res) {
+        var user = req.user._doc;
+        var path = req.query.path;
+
+        imapMailClient.getMailboxChildren(path, user.settings)
+            .then(function(mailboxChildren){
+                res.json({result: mailboxChildren});
+            })
+            .catch(function(err){
+                res.json({err: err});
+            });
+    },
     getMessage: function (req, res) {
         var user = req.user._doc;
         var path = req.query.path;

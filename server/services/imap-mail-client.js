@@ -24,10 +24,10 @@ module.exports = {
                         reject(err);
                     }
 
-                    for(var i=0, len = mailboxes.length; i<len; i++){
-                        if(mailboxes[i].hasChildren){
-                            mailboxes[i].listChildren(function(err, children){
-                                if(err){
+                    for (var i = 0, len = mailboxes.length; i < len; i++) {
+                        if (mailboxes[i].hasChildren) {
+                            mailboxes[i].listChildren(function (err, children) {
+                                if (err) {
                                     reject(err);
                                 }
 
@@ -38,6 +38,30 @@ module.exports = {
 
                     client.close();
                     resolve(mailboxes);
+                });
+            });
+        });
+    },
+    getMailboxChildren: function (mailboxPath, settings) {
+        var client = getClient(settings);
+        client.connect();
+        return new Promise(function (resolve, reject) {
+            client.on("connect", function () {
+                client.getMailbox(mailboxPath, function (error, mailbox) {
+                    if (err) {
+                        reject(err);
+                    }
+
+                    if(mailbox && mailbox.hasChildren){
+                        mailbox.listChildren(function(err, children){
+                            if (err) {
+                                reject(err);
+                            }
+
+                            client.close();
+                            resolve(children);
+                        });
+                    }
                 });
             });
         });
@@ -57,10 +81,9 @@ module.exports = {
                             reject(err)
                         }
 
+                        client.close();
                         resolve(messages)
                     });
-
-                    client.close();
                 });
             });
         });
@@ -90,7 +113,6 @@ module.exports = {
                             .then(function (email) {
                                 resolve(email);
                             })
-
                     });
                 });
             });
