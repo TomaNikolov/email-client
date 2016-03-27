@@ -28,29 +28,7 @@ block main-content
                   div(class="col-sm-3 col-md-2")
                      a(href="#/compose", role="button", class="btn btn-danger btn-sm btn-block") COMPOSE
                      div(class="mtm mbm")
-                     div(class="panel" ng-controller="HomeController as vm")
-                        div(class="panel-body pan")
-                           ul(style="background: #fff" class="nav nav-pills nav-stacked")
-                              li(ng-class="{active : vm.activeMenu === 'Inbox'}" ng-click="vm.activeMenu = 'Inbox'")
-                                 a(href="#/home")
-                                    span(class="badge pull-right") 42
-                                    i(class="fa fa-inbox fa-fw mrs")
-                                    |&nbsp;Inbox
-                              li(ng-class="{active : vm.activeMenu === 'Outbox'}" ng-click="vm.activeMenu = 'Outbox'")
-                                 a(href="#/outbox")
-                                    span(class="badge  pull-right")
-                                    i(class="fa fa-inbox fa-fw mrs")
-                                    | &nbsp;Outbox
-                              li(ng-class="{active : vm.activeMenu === 'Drafts'}" ng-click="vm.activeMenu = 'Drafts'")
-                                 a(href="#/drafts")
-                                    span(class="badge  pull-right") 3
-                                    i(class="fa fa-inbox fa-fw mrs")
-                                    | &nbsp;Drafts
-                              li(ng-class="{active : vm.activeMenu === 'Spam'}" ng-click="vm.activeMenu = 'Spam'")
-                                 a(href="#/spam")
-                                    span(class="badge pull-right") 256
-                                    i(class="fa fa-inbox fa-fw mrs")
-                                    | &nbsp;Spam
+                     div(ng-include="'views/partials/common/side-menu.html'")
                   div(class ="col-sm-9 col-md-10" ng-view)
 
 

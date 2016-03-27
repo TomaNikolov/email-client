@@ -1,0 +1,30 @@
+<div class="panel" ng-controller="HomeController as vm">
+    <div class="panel-body pan">
+        <ul style="background: #fff" class="nav nav-pills nav-stacked">
+            <li ng-class="{active : vm.activeMenu === 'Inbox'}" ng-click="vm.activeMenu = 'Inbox'">
+                <a href="#/home">
+                    <span class="badge pull-right">42</span>
+                    <i class="fa fa-inbox fa-fw mrs">&nbsp;Inbox</i>
+                </a>
+            </li>
+            <li ng-class="{active : vm.activeMenu === 'Outbox'}" ng-click="vm.activeMenu = 'Outbox'">
+                <a href="#/home">
+                    <span class="badge pull-right">2</span>
+                    <i class="fa fa-inbox fa-fw mrs">&nbsp;Outbox</i>
+                </a>
+            </li>
+            <li ng-class="{active : vm.activeMenu === 'Drafts'}" ng-click="vm.activeMenu = 'Drafts'">
+                <a href="#/home">
+                    <span class="badge pull-right">3</span>
+                    <i class="fa fa-inbox fa-fw mrs">&nbsp;Drafts</i>
+                </a>
+            </li>
+            <li ng-class="{active : vm.activeMenu === 'Spam'}" ng-click="vm.activeMenu = 'Spam'">
+                <a href="#/home">
+                    <span class="badge pull-right">256</span>
+                    <i class="fa fa-inbox fa-fw mrs">&nbsp;Spam</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
