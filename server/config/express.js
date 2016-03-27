@@ -55,4 +55,13 @@ module.exports = function (app, config) {
 
         next();
     });
+
+    app.use(function (req, res, next) {
+        if (req.user) {
+            var user = req.user;
+            res.locals.currentUser = user;
+        }
+
+        next();
+    });
 };

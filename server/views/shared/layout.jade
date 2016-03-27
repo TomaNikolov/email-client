@@ -1,7 +1,7 @@
 doctype
 html
     head
-        title WebServerXplorer
+        title E-mail client
         link(rel="stylesheet", href="/lib/bootstrap-3.3.6-dist/css/bootstrap.min.css")
         link(rel="stylesheet", href="/lib/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css")
         link(rel="stylesheet", href="/css/font-awesome.min.css")
@@ -21,29 +21,28 @@ html
                     a.navbar-brand(href="/") HOME
                 .collapse.navbar-collapse#navbar-collapse-1
                     ul.nav.navbar-nav.navbar-right
-                        li
-                            a(href="/files") Storage
-                        if (true)
+                        if (currentUser)
                             li.dropdown
                                 a.dropdown-toggle(href="", data-toggle="dropdown")
-                                    | # Pesho
+                                    |  #{currentUser.username}
                                     span.caret
                                 ul.dropdown-menu
-
-                                    if(true)
-                                        li
-                                            a(href="/register") Register new user
-                                        li
-                                            a(href="/admin/users") Users
                                     li
-                                        a(href="/profile") Profile
-                                li
-                                    a(href="/logout") Logout
+                                        a(href="/settings") Settings
+                            li
+                                a(href="/logout") Logout
                         else
+                            li
+                                a(href="/register") Register
                             li
                                 a(href="/login") Login
 
         .container-fluid
+            if (errorMessage)
+                div.alert.alert-danger !{errorMessage}
+
+            if (successMessage)
+                div.alert.alert-success !{successMessage}
 
             block main-content
 

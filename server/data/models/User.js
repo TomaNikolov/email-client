@@ -10,7 +10,6 @@ module.exports.init = function () {
         },
         salt: String,
         hashPass: String,
-        roles: [String],
         token: String,
         settings: {
             email: {

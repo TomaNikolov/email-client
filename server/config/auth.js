@@ -31,8 +31,6 @@ module.exports = {
     },
     isAuthenticated: function (req, res, next) {
         if (!req.isAuthenticated()) {
-            req.session.error = "You must login first.";
-            res.status(403);
             res.redirect('/login');
         } else {
             next();
