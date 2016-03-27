@@ -34,8 +34,9 @@
     }
 
     angular.module('myApp.services', []);
+    angular.module('myApp.directives', []);
     angular.module('myApp.controllers', ['myApp.services']);
-    angular.module('myApp', ['ngRoute', 'ngCookies', 'myApp.controllers'])
+    angular.module('myApp', ['ngRoute', 'ngCookies', 'myApp.directives', 'myApp.controllers'])
         .config(['$routeProvider', config])
         .constant('baseServiceUrl', 'http://localhost:3005');
 }());

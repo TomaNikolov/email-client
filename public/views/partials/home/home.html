@@ -1,4 +1,5 @@
 <div class="tab-content">
+    <div loading></div>
     <div ng-repeat="message in vm.messages.result">
         <a href="#/details/{{vm.mailbox}}/{{message.UID}}" class="list-group-item">
             <input type="checkbox" /><span class="fa fa-star-o mrm mlm"></span><span style="min-width: 120px; display: inline-block;" class="name">{{message.from.name}}</span><span>{{message.title}}</span><span class="time-badge">{{message.title}}</span><span class="pull-right mrl"><span class="fa fa-paperclip"></span></span>

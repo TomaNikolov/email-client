@@ -25,7 +25,7 @@
                 });
             });
 
-        
+
 
         vm.encode = function(url){
             return window.encodeURIComponent(url);
