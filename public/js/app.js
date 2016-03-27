@@ -8,11 +8,6 @@
 
 
         $routeProvider
-            .when('/:mailbox', {
-                templateUrl: PARTIALS_PREFIX + 'home/home.html',
-                controller: 'HomeController',
-                controllerAs: CONTROLLER_AS_VIEW_MODEL
-            })
             .when('/outbox',{
                 templateUrl: PARTIALS_PREFIX + 'outbox/outbox.html',
                 controller: 'OutboxController',
@@ -26,6 +21,11 @@
             .when('/compose',{
                 templateUrl: PARTIALS_PREFIX + 'compose/compose.html',
                 controller: 'ComposeController',
+                controllerAs: CONTROLLER_AS_VIEW_MODEL
+            })
+            .when('/:mailbox', {
+                templateUrl: PARTIALS_PREFIX + 'home/home.html',
+                controller: 'HomeController',
                 controllerAs: CONTROLLER_AS_VIEW_MODEL
             })
             .otherwise({ redirectTo: '/' });

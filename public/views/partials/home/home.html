@@ -1,8 +1,24 @@
+<div class="row bottom-space">
+    <div class=" col-md-12">
+        <button type="button" data-toggle="tooltip" title="Refresh" class="btn btn-default mls mrs"><span
+                class="fa fa-refresh"></span></button>
+        <div class="pull-right"><span
+                class="text-muted"><b>1</b>&nbsp; – &nbsp;<b>50</b>&nbsp; of &nbsp;<b>277</b></span>
+            <div class="btn-group mlm">
+                <button type="button" class="btn btn-default"><span class="fa fa-chevron-left"></span></button>
+                <button type="button" class="btn btn-default"><span class="fa fa-chevron-right"></span></button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="tab-content">
     <div loading></div>
     <div ng-repeat="message in vm.messages.result">
         <a href="#/details/{{vm.mailbox}}/{{message.UID}}" class="list-group-item">
-            <input type="checkbox" /><span class="fa fa-star-o mrm mlm"></span><span style="min-width: 120px; display: inline-block;" class="name">{{message.from.name}}</span><span>{{message.title}}</span><span class="time-badge">{{message.title}}</span><span class="pull-right mrl"><span class="fa fa-paperclip"></span></span>
+            <input type="checkbox"/><span class="fa fa-star-o mrm mlm"></span><span
+                style="min-width: 120px; display: inline-block;" class="name">{{message.from.name}}</span><span>{{message.title}}</span><span
+                class="time-badge">{{message.title}}</span><span class="pull-right mrl"><span
+                class="fa fa-paperclip"></span></span>
         </a>
     </div>
 </div>
