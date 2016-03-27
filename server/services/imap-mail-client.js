@@ -47,7 +47,7 @@ module.exports = {
         client.connect();
         return new Promise(function (resolve, reject) {
             client.on("connect", function () {
-                client.getMailbox(mailboxPath, function (error, mailbox) {
+                client.getMailbox(mailboxPath, function (err, mailbox) {
                     if (err) {
                         reject(err);
                     }
